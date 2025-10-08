@@ -1,0 +1,7 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 200  # Frecuencia de actualización del controlador en Hz
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+      ros__parameters:
+        publish_rate: 50
