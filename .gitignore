@@ -1,0 +1,25 @@
+# Build, install, and log folders
+/build/
+/install/
+/log/
+
+# Compiled Python files
+*.pyc
+__pycache__/
+
+# VSCode settings (opcional)
+.vscode/
+
+# Backup files
+*~
+*.swp
+*.swo
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Ignore any other hidden files not needed
+.*
+!.gitignore
+launch.sh
