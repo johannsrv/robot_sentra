@@ -1,7 +1,98 @@
 controller_manager:
   ros__parameters:
-    update_rate: 200  # Frecuencia de actualización del controlador en Hz
+    use_sim_time: True
+    update_rate: 100
+
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
-      ros__parameters:
-        publish_rate: 50
+
+    # Controladores de posición individuales
+    front_left_shoulder_position_controller:
+      type: forward_command_controller/ForwardCommandController
+    front_left_leg_position_controller:
+      type: forward_command_controller/ForwardCommandController
+    front_left_foot_position_controller:
+      type: forward_command_controller/ForwardCommandController
+
+    front_right_shoulder_position_controller:
+      type: forward_command_controller/ForwardCommandController
+    front_right_leg_position_controller:
+      type: forward_command_controller/ForwardCommandController
+    front_right_foot_position_controller:
+      type: forward_command_controller/ForwardCommandController
+
+    rear_left_shoulder_position_controller:
+      type: forward_command_controller/ForwardCommandController
+    rear_left_leg_position_controller:
+      type: forward_command_controller/ForwardCommandController
+    rear_left_foot_position_controller:
+      type: forward_command_controller/ForwardCommandController
+
+    rear_right_shoulder_position_controller:
+      type: forward_command_controller/ForwardCommandController
+    rear_right_leg_position_controller:
+      type: forward_command_controller/ForwardCommandController
+    rear_right_foot_position_controller:
+      type: forward_command_controller/ForwardCommandController
+
+# === Parámetros de cada controlador ===
+
+front_left_shoulder_position_controller:
+  ros__parameters:
+    joints: [front_left_shoulder]
+    interface_name: position
+
+front_left_leg_position_controller:
+  ros__parameters:
+    joints: [front_left_leg]
+    interface_name: position
+
+front_left_foot_position_controller:
+  ros__parameters:
+    joints: [front_left_foot]
+    interface_name: position
+
+front_right_shoulder_position_controller:
+  ros__parameters:
+    joints: [front_right_shoulder]
+    interface_name: position
+
+front_right_leg_position_controller:
+  ros__parameters:
+    joints: [front_right_leg]
+    interface_name: position
+
+front_right_foot_position_controller:
+  ros__parameters:
+    joints: [front_right_foot]
+    interface_name: position
+
+rear_left_shoulder_position_controller:
+  ros__parameters:
+    joints: [rear_left_shoulder]
+    interface_name: position
+
+rear_left_leg_position_controller:
+  ros__parameters:
+    joints: [rear_left_leg]
+    interface_name: position
+
+rear_left_foot_position_controller:
+  ros__parameters:
+    joints: [rear_left_foot]
+    interface_name: position
+
+rear_right_shoulder_position_controller:
+  ros__parameters:
+    joints: [rear_right_shoulder]
+    interface_name: position
+
+rear_right_leg_position_controller:
+  ros__parameters:
+    joints: [rear_right_leg]
+    interface_name: position
+
+rear_right_foot_position_controller:
+  ros__parameters:
+    joints: [rear_right_foot]
+    interface_name: position
