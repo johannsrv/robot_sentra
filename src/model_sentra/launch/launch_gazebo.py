@@ -9,17 +9,17 @@ def generate_launch_description():
     pkg_share = get_package_share_directory('model_sentra')
     urdf_installed = os.path.join(pkg_share, 'urdf', 'model_sentra.urdf')
 
-    # read URDF and replace package://model_sentra with absolute path
+    # Read URDF and replace package://model_sentra with absolute path
     with open(urdf_installed, 'r') as f:
         urdf_text = f.read()
     urdf_text_abs = urdf_text.replace('package://model_sentra', pkg_share)
 
-    # write to a temporary file for spawn
+    # Write to a temporary file for spawn
     tmp_urdf = '/tmp/model_sentra_for_spawn.urdf'
     with open(tmp_urdf, 'w') as f:
         f.write(urdf_text_abs)
 
-    # optional: set model path parent (safe)
+    # Optional: set model path parent (safe)
     set_gz_model_path = SetEnvironmentVariable(
         name='GZ_MODEL_PATH',
         value=os.environ.get('GZ_MODEL_PATH', '') + ':' + os.path.dirname(pkg_share)
@@ -29,6 +29,7 @@ def generate_launch_description():
         value=os.environ.get('GAZEBO_MODEL_PATH', '') + ':' + os.path.dirname(pkg_share)
     )
 
+    # Launch Gazebo
     gz_sim = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(get_package_share_directory('ros_gz_sim'), 'launch', 'gz_sim.launch.py')
@@ -36,6 +37,15 @@ def generate_launch_description():
         launch_arguments={'gz_args': '-r empty.sdf'}.items()
     )
 
+    # ✅ Add ROS-Gazebo clock bridge (to fix "No clock received" warning)
+    clock_bridge = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        arguments=['/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock'],
+        output='screen'
+    )
+
+    # Robot State Publisher
     robot_state_publisher = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
@@ -45,6 +55,7 @@ def generate_launch_description():
         }]
     )
 
+    # Spawn the URDF model in Gazebo
     spawn_entity = Node(
         package='ros_gz_sim',
         executable='create',
@@ -56,6 +67,7 @@ def generate_launch_description():
         set_gz_model_path,
         set_gazebo_model_path,
         gz_sim,
+        clock_bridge,               # 👈 se añade aquí
         robot_state_publisher,
         spawn_entity
     ])

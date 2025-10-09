@@ -9,75 +9,75 @@
 
     <!-- Declaras todos los joints controlables -->
     <joint name="front_left_shoulder">
-      <command_interface name="effort"/>
+      <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
 
     <joint name="front_left_leg">
-      <command_interface name="effort"/>
+      <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
 
     <joint name="front_left_foot">
-      <command_interface name="effort"/>
+      <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
 
     <!-- Añade el resto de las patas -->
     <joint name="front_right_shoulder">
-      <command_interface name="effort"/>
+      <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
 
     <joint name="front_right_leg">
-      <command_interface name="effort"/>
+      <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
 
     <joint name="front_right_foot">
-      <command_interface name="effort"/>
+      <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
 
     <!-- Igual para las patas traseras -->
     <joint name="rear_left_shoulder">
-      <command_interface name="effort"/>
+      <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
 
     <joint name="rear_left_leg">
-      <command_interface name="effort"/>
+      <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
 
     <joint name="rear_left_foot">
-      <command_interface name="effort"/>
+      <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
 
     <joint name="rear_right_shoulder">
-      <command_interface name="effort"/>
+      <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
 
     <joint name="rear_right_leg">
-      <command_interface name="effort"/>
+      <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
 
     <joint name="rear_right_foot">
-      <command_interface name="effort"/>
+      <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>

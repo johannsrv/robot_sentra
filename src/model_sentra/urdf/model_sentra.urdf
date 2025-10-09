@@ -598,7 +598,7 @@
     </actuator>
     <joint>
       <name>front_left_shoulder</name>
-      <hardwareInterface>hardware_interface/Effort</hardwareInterface>
+      <hardwareInterface>hardware_interface/effort</hardwareInterface>
     </joint>
   </transmission>
   <transmission name="front_left_leg_trans">
@@ -609,7 +609,7 @@
     </actuator>
     <joint>
       <name>front_left_leg</name>
-      <hardwareInterface>hardware_interface/Effort</hardwareInterface>
+      <hardwareInterface>hardware_interface/effort</hardwareInterface>
     </joint>
   </transmission>
   <transmission name="front_left_foot_trans">
@@ -620,7 +620,7 @@
     </actuator>
     <joint>
       <name>front_left_foot</name>
-      <hardwareInterface>hardware_interface/Effort</hardwareInterface>
+      <hardwareInterface>hardware_interface/effort</hardwareInterface>
     </joint>
   </transmission>
   <transmission name="front_right_shoulder_trans">
@@ -631,7 +631,7 @@
     </actuator>
     <joint>
       <name>front_right_shoulder</name>
-      <hardwareInterface>hardware_interface/Effort</hardwareInterface>
+      <hardwareInterface>hardware_interface/effort</hardwareInterface>
     </joint>
   </transmission>
   <transmission name="front_right_leg_trans">
@@ -642,7 +642,7 @@
     </actuator>
     <joint>
       <name>front_right_leg</name>
-      <hardwareInterface>hardware_interface/Effort</hardwareInterface>
+      <hardwareInterface>hardware_interface/effort</hardwareInterface>
     </joint>
   </transmission>
   <transmission name="front_right_foot_trans">
@@ -653,7 +653,7 @@
     </actuator>
     <joint>
       <name>front_right_foot</name>
-      <hardwareInterface>hardware_interface/Effort</hardwareInterface>
+      <hardwareInterface>hardware_interface/effort</hardwareInterface>
     </joint>
   </transmission>
   <transmission name="rear_left_shoulder_trans">
@@ -664,7 +664,7 @@
     </actuator>
     <joint>
       <name>rear_left_shoulder</name>
-      <hardwareInterface>hardware_interface/Effort</hardwareInterface>
+      <hardwareInterface>hardware_interface/effort</hardwareInterface>
     </joint>
   </transmission>
   <transmission name="rear_left_leg_trans">
@@ -675,7 +675,7 @@
     </actuator>
     <joint>
       <name>rear_left_leg</name>
-      <hardwareInterface>hardware_interface/Effort</hardwareInterface>
+      <hardwareInterface>hardware_interface/effort</hardwareInterface>
     </joint>
   </transmission>
   <transmission name="rear_left_foot_trans">
@@ -686,7 +686,7 @@
     </actuator>
     <joint>
       <name>rear_left_foot</name>
-      <hardwareInterface>hardware_interface/Effort</hardwareInterface>
+      <hardwareInterface>hardware_interface/effort</hardwareInterface>
     </joint>
   </transmission>
   <transmission name="rear_right_shoulder_trans">
@@ -697,7 +697,7 @@
     </actuator>
     <joint>
       <name>rear_right_shoulder</name>
-      <hardwareInterface>hardware_interface/Effort</hardwareInterface>
+      <hardwareInterface>hardware_interface/effort</hardwareInterface>
     </joint>
   </transmission>
   <transmission name="rear_right_leg_trans">
@@ -708,7 +708,7 @@
     </actuator>
     <joint>
       <name>rear_right_leg</name>
-      <hardwareInterface>hardware_interface/Effort</hardwareInterface>
+      <hardwareInterface>hardware_interface/effort</hardwareInterface>
     </joint>
   </transmission>
   <transmission name="rear_right_foot_trans">
@@ -719,7 +719,7 @@
     </actuator>
     <joint>
       <name>rear_right_foot</name>
-      <hardwareInterface>hardware_interface/Effort</hardwareInterface>
+      <hardwareInterface>hardware_interface/effort</hardwareInterface>
     </joint>
   </transmission>
   <ros2_control name="servo_system" type="system">
@@ -729,72 +729,76 @@
     </hardware>
     <!-- Declaras todos los joints controlables -->
     <joint name="front_left_shoulder">
-      <command_interface name="effort"/>
+      <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
     <joint name="front_left_leg">
-      <command_interface name="effort"/>
+      <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
     <joint name="front_left_foot">
-      <command_interface name="effort"/>
+      <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
     <!-- Añade el resto de las patas -->
     <joint name="front_right_shoulder">
-      <command_interface name="effort"/>
+      <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
     <joint name="front_right_leg">
-      <command_interface name="effort"/>
+      <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
     <joint name="front_right_foot">
-      <command_interface name="effort"/>
+      <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
     <!-- Igual para las patas traseras -->
     <joint name="rear_left_shoulder">
-      <command_interface name="effort"/>
+      <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
     <joint name="rear_left_leg">
-      <command_interface name="effort"/>
+      <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
     <joint name="rear_left_foot">
-      <command_interface name="effort"/>
+      <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
     <joint name="rear_right_shoulder">
-      <command_interface name="effort"/>
+      <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
     <joint name="rear_right_leg">
-      <command_interface name="effort"/>
+      <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
     <joint name="rear_right_foot">
-      <command_interface name="effort"/>
+      <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
   </ros2_control>
   <gazebo>
     <plugin filename="libgz_ros2_control-system.so" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
-      <!-- Archivo YAML con los controladores PID -->
-      <parameters>/home/johann/proyectos/Sentra/install/motor_controller/share/motor_controller/config/controllers.yaml</parameters>
+      <ros>
+        <namespace>/</namespace>
+        <remapping>~/clock:=/clock</remapping>
+        <param name="use_sim_time">true</param>
+      </ros>
+      <parameters>/home/johann/proyectos/robot_sentra/install/motor_controller/share/motor_controller/config/controllers.yaml</parameters>
     </plugin>
   </gazebo>
 </robot>
