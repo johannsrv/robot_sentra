@@ -1,0 +1,5 @@
+# Servicio para seleccionar el comportamiento general:
+string behavior   # "stand", "sit", "walk", "run", "turn_left", "turn_right"
+---
+bool success
+string message

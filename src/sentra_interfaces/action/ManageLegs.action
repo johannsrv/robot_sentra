@@ -1,0 +1,14 @@
+# Goal
+string movement_type   # "walk_forward", "trot", "turn_left", "turn_right", etc.
+float64 speed
+float64 duration
+
+---
+# Result
+bool success
+string message
+
+---
+# Feedback
+float64 progress       # porcentaje de avance
+string current_phase   # "lifting_leg", "moving_forward", etc.
